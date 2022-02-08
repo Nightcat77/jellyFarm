@@ -10,32 +10,41 @@ public class JellyMove : MonoBehaviour
     float yMin = -2.2f;
     float speed = 0.5f;
     float moveCount = 0;
+
+    bool isWalk = true;
     Rigidbody jelly;
+
+    Animator animator;
     void Start()
     {
         
         
-        StartCoroutine(MoveSlime());
+        
     }
 
     void Update()
     {
-       
+        if (isWalk)
+        {
+
+        }
 
     }
 
-    IEnumerator MoveSlime()
+    /*IEnumerator MoveSlime()
     {
-        jelly = GetComponent<Rigidbody>();
-        while (true)
+        while (isWalk==false)
         {
             float x = Random.Range(xMin, xMax);
             float y = Random.Range(yMin, yMax);
             Vector3 target =new Vector3(x,y,0);
-            
+            isWalk = true;
+            transform.position = Vector3.Lerp(transform.position, target, speed);
+
+            animator.SetBool("isWalk", isWalk);
             yield return new WaitForSeconds(3f);
-            jelly.velocity = new Vector3(x, y, 0);
+            isWalk = false;
             
         }
-    }
+    }*/
 }
